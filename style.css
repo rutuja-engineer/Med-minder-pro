@@ -1,0 +1,311 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #0056b3; /* A deeper blue */
+    --secondary-color: #f8f9fa; /* Light grey background */
+    --accent-color: #28a745; /* Green for success/taken */
+    --danger-color: #dc3545; /* Red for delete */
+    --text-color: #343a40; /* Dark grey text */
+    --light-text-color: #6c757d; /* Lighter grey text */
+    --border-color: #dee2e6;
+    --card-bg: #ffffff;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    --border-radius: 8px;
+    --font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.7;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-size: 16px; /* Base font size */
+}
+
+.container {
+    max-width: 800px; /* Slightly wider */
+    margin: 0 auto;
+    padding: 0 15px; /* Padding on sides */
+}
+
+/* --- Header & Footer --- */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin: 0;
+}
+header h1 i { margin-right: 10px; }
+
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1.5rem 0;
+    color: var(--light-text-color);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Utility & Shared Styles --- */
+.card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    padding: 1.5rem; /* More padding */
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+h2 {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+h2 i { margin-right: 8px; color: var(--primary-color); }
+
+
+.btn {
+    display: inline-block; /* Allows inline icons */
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px; /* Slightly less round */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 400; /* Regular weight for buttons */
+    text-align: center;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease;
+    text-decoration: none; /* For potential <a> buttons */
+    vertical-align: middle; /* Align icon and text */
+}
+.btn i { margin-right: 5px; }
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #004085; /* Darker blue on hover */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+    padding: 0.4rem 0.8rem; /* Smaller delete button */
+    font-size: 0.9rem;
+}
+.btn-danger:hover {
+    background-color: #c82333; /* Darker red */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.placeholder {
+    font-style: italic;
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 1rem 0;
+    background: none !important; /* Override list item background */
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+/* --- Form Styles --- */
+
+.form-group {
+    margin-bottom: 1.25rem; /* Increased spacing */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600; /* Bolder labels */
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-group input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.25); /* Focus ring */
+}
+.form-group input[type="text"]::placeholder {
+    color: #aaa; /* Lighter placeholder text */
+}
+
+#addMedForm button[type="submit"] {
+    width: 100%;
+    margin-top: 0.5rem; /* Space above button */
+}
+
+/* --- Disclaimer Styles --- */
+.disclaimer {
+    background-color: #fff3cd; /* Keep yellow for warning */
+    border-color: #ffeeba;
+    color: #856404;
+    font-size: 0.9rem;
+}
+.disclaimer strong i {
+    margin-right: 5px;
+}
+
+/* --- List Styles (Manage Meds & Schedule) --- */
+.item-list {
+    list-style: none;
+    padding: 0;
+}
+
+.item-list li:not(.placeholder) {
+    background: var(--card-bg); /* Use card background */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1rem 1.25rem; /* Consistent padding */
+    margin-bottom: 1rem; /* Space between items */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03); /* Subtle shadow on items */
+}
+
+/* Medication Management List Specifics */
+#medsList li .med-info {
+    flex-grow: 1;
+    margin-right: 1rem;
+    line-height: 1.5; /* Adjust line height within item */
+}
+
+#medsList li .med-info strong {
+    font-weight: 600;
+    color: var(--text-color);
+    display: block; /* Ensure name is on its own line */
+    margin-bottom: 0.2rem;
+}
+
+#medsList li .med-info span { /* Dosage and Times */
+    font-size: 0.9rem;
+    color: var(--light-text-color);
+    display: block; /* Ensure dosage/times are below name */
+}
+
+#medsList li .delete-btn {
+    /* Uses .btn and .btn-danger styles */
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+/* Schedule List Specifics */
+#scheduleList li .dose-info {
+    flex-grow: 1;
+    margin-left: 1rem; /* Space between checkbox and text */
+}
+
+#scheduleList li .dose-time {
+    font-weight: 700; /* Bolder time */
+    color: var(--primary-color);
+    margin-right: 5px;
+    font-size: 1.05rem;
+}
+
+#scheduleList li input[type="checkbox"] {
+    /* Basic styling - custom checkboxes are more complex */
+    width: 22px; /* Larger checkbox */
+    height: 22px;
+    margin-right: 1rem; /* Keep space */
+    cursor: pointer;
+    accent-color: var(--primary-color); /* Color the check */
+    flex-shrink: 0;
+}
+
+/* "Taken" state styling */
+#scheduleList li.taken {
+    background-color: #e9f5ec; /* Lighter green */
+    border-color: #c3e6cb;
+}
+
+#scheduleList li.taken .dose-info {
+    text-decoration: line-through;
+    color: var(--light-text-color); /* Grey out text */
+    opacity: 0.7; /* Slightly fade */
+}
+#scheduleList li.taken .dose-time {
+    color: var(--light-text-color); /* Grey out time too */
+    text-decoration: line-through;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+    body {
+        font-size: 15px; /* Slightly smaller base font on mobile */
+    }
+    .container {
+        padding: 0 10px;
+    }
+    header {
+        padding: 1rem 0;
+        margin-bottom: 1.5rem;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+    .card {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    h2 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    /* Stack list items elements if needed, especially manage list */
+    #medsList li:not(.placeholder) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #medsList li .delete-btn {
+        margin-top: 0.75rem; /* Space when stacked */
+        align-self: flex-end; /* Button to the right */
+    }
+    #medsList li .med-info {
+        margin-right: 0; /* No right margin when stacked */
+        margin-bottom: 0.5rem; /* Space below info */
+    }
+
+    /* Schedule list might still fit side-by-side */
+    #scheduleList li input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        margin-right: 0.75rem;
+    }
+     #scheduleList li .dose-info {
+        margin-left: 0.75rem;
+    }
+}

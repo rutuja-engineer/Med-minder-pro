@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Med Minder Pro</title>
+    <!-- Link Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons (Optional but Recommended) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+             <h1><i class="fas fa-pills"></i> Med Minder Pro</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card disclaimer">
+            <p>
+                <strong><i class="fas fa-exclamation-triangle"></i> Disclaimer:</strong> This tool aids medication tracking. It is NOT a substitute for professional medical advice. Always consult your doctor or pharmacist. Do not rely solely on this tool for critical reminders.
+            </p>
+        </section>
+
+        <section class="card add-med-section">
+            <h2><i class="fas fa-plus-circle"></i> Add New Medication</h2>
+            <form id="addMedForm">
+                <div class="form-group">
+                    <label for="medName">Medication Name:</label>
+                    <input type="text" id="medName" required placeholder="e.g., Vitamin D">
+                </div>
+                <div class="form-group">
+                    <label for="medDosage">Dosage:</label>
+                    <input type="text" id="medDosage" required placeholder="e.g., 1 tablet, 5ml">
+                </div>
+                <div class="form-group">
+                    <label for="medTimes">Time(s) to Take (HH:MM):</label>
+                    <input type="text" id="medTimes" placeholder="08:00, 20:00 (comma-separated)" required pattern="^([0-1]?[0-9]|2[0-3]):[0-5][0-9]( *, *([0-1]?[0-9]|2[0-3]):[0-5][0-9])*$" title="Use HH:MM format, separate multiple times with commas">
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Add Medication</button>
+            </form>
+        </section>
+
+        <section class="meds-management">
+             <h2><i class="fas fa-clipboard-list"></i> Manage Medications</h2>
+             <ul id="medsList" class="item-list">
+                 <!-- Medication list will be populated here -->
+                 <li class="placeholder">No medications added yet.</li>
+             </ul>
+         </section>
+
+        <section class="schedule">
+            <h2><i class="fas fa-calendar-day"></i> Today's Schedule (<span id="todayDate"></span>)</h2>
+            <ul id="scheduleList" class="item-list">
+                <!-- Today's schedule will be populated here -->
+                <li class="placeholder">Loading schedule...</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="currentYear"></span> Your Name/Brand - Simple Project</p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script> // Simple script for current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
